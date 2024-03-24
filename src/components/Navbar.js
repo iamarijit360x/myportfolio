@@ -6,10 +6,8 @@ export default function NavBar(){
     return(
         <AppBar position="static">
         <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-               Arijit Banerjee
-            </Typography>
-            <Button color="inherit">About</Button>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Arijit Banerjee</Typography>
+            <Button href='#about'color="inherit">About</Button>
             <Button color="inherit">Portfolio</Button>
             <Button color="inherit">Contact</Button>
         </Toolbar>
