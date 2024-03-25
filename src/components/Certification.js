@@ -29,10 +29,10 @@ const data=[
   }
 ];
 
-export default function Projects() {
+export default function Certifications() {
   return (
-    <Container id="projects" maxWidth="md" sx={{ marginTop: '16px'}} style={{textAlign:"center"}}>
-      <Typography variant='h4' align="center" gutterBottom>Projects</Typography>
+    <Container id="certifications" maxWidth="md" sx={{ marginTop: '2rem'}} style={{textAlign:"center"}}>
+      <Typography variant='h3' align="center" gutterBottom>Certifications</Typography>
       <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
         {data.map(item=>(
           <Card sx={{ maxWidth: 400, marginBottom: '20px' }}>
@@ -49,7 +49,6 @@ export default function Projects() {
               </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-around',bottom:'0' }}>
-              <Button size="small">Share</Button>
               <Button size="small">link</Button>
             </CardActions>
           </Card>

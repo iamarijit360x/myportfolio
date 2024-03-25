@@ -1,11 +1,36 @@
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton,Button, Menu, MenuItem } from '@mui/material';
 import { useState ,useEffect} from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-export default function NavBar(){
-    //Items for Navbar
-    const items=[{title:"Home",id:"home"},{title:"Skills",id:"skill"},{title:"Projects",id:"projects"},{title:"Education",id:"education"}]
-    //Floating NavBar
+import HomeIcon from '@mui/icons-material/Home';
+import SchoolIcon from '@mui/icons-material/School';
+import CodeIcon from '@mui/icons-material/Code';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import MenuIcon from '@mui/icons-material/Menu'; // Import MenuIcon
+
+export default function NavBar({smallScreen}){
+    //Floating Navbar Zoom Effect
+    
+    const [anchorEl, setAnchorEl] = useState(null);
+    
+    const [hoverItem,setHoverItem]=useState(null);
     const [showNavbar, setShowNavbar] = useState(false);
+ 
+
+    
+    function handleMouseEnter(id){
+      setHoverItem(id)
+    }
+    function handleMouseELeave(id){
+      setHoverItem(null)
+    }
+    //Items for Navbar
+    const items=[{title:"Home",id:"home",icon:<HomeIcon/>},
+    {title:"Skills",id:"skill",icon:<EngineeringIcon/>},
+    {title:"Projects",id:"projects",icon:<CodeIcon/>},
+    {title:"Education",id:"education",icon:<SchoolIcon/>},
+  ]
+    
     useEffect(() => {
                      window.addEventListener('scroll', handleScroll);
                      return () => {
@@ -20,7 +45,13 @@ export default function NavBar(){
       setShowNavbar(false);
     
   };
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
   function scrollToTop(){
     window.scrollTo({
       top: 0,
@@ -35,25 +66,79 @@ export default function NavBar(){
         const element =document.getElementById(id)
         element.scrollIntoView({behavior:"smooth"})
     }
+
+
+    const Mobile_comp = ()=>{
+      return (
+        <AppBar position="static" style={{ width: "100%" }}>
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Arijit</Typography>
+                    <IconButton onClick={handleMenuClick} color="inherit" aria-label="menu">
+                        <MenuIcon />
+                    </IconButton>
+                    <Menu
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'left', // Adjusted to left
+                        }}
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'left', // Adjusted to left
+                        }}
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleMenuClose}
+                      
+                    >
+                        {items.map(item => (
+                            <MenuItem key={item.id} onClick={() => { handleMenuClose(); focus(item.id); }}>
+                                {item.title}
+                            </MenuItem>
+                        ))}
+                        <MenuItem onClick={() => { handleMenuClose(); window.location.href = 'https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'; }}>
+                            Download CV
+                            <FileDownloadIcon />
+                        </MenuItem>
+                    </Menu>
+                </Toolbar>
+            </AppBar>
+      )
+    }
+    const Normal_comp = ()=>{
+      return (
+        <AppBar position="static" style={{width:"100%"}}>
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>ArijitX</Typography>
+                    
+                    {items.map(item=>
+                        
+                        <Button onClick={()=>focus(item.id)} color="inherit">{item.icon}{item.title}</Button>
+                        )}
+                    <Button onClick={()=>{window.location.href='https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'}} color="inherit">Download CV<FileDownloadIcon/></Button>
+                </Toolbar>
+            </AppBar>
+      )
+    }
     return(
         <>
        
         
-        <AppBar position="static" >
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Arijit Banerjee</Typography>
-                    {items.map(item=>
-                        
-                        <Button onClick={()=>focus(item.id)} color="inherit">{item.title}</Button>
-                        )}
-        
-                </Toolbar>
-            </AppBar>
+        {smallScreen?<Mobile_comp/>:<Normal_comp/>}
             
             {showNavbar && (
-        <div style={{ position: 'fixed', bottom: '20px', right: '20px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '50%', padding: '8px', cursor: 'pointer' }} onClick={scrollToTop}>
-          <ArrowUpwardIcon />
-        </div>
+            <div style={{position: 'fixed',display:"flex",rowGap:"10px",justifyContent:"space-between",flexDirection:"column",bottom: '20px', right: '20px', backgroundColor:"transparent", borderRadius:"2px", padding: '8px', cursor: 'pointer'}} >
+           
+              {items.map(item=>(
+                <div onClick={()=>focus(item.id)} onMouseEnter={()=>handleMouseEnter(item.id)} onMouseLeave={handleMouseELeave} style={{transform:hoverItem===item.id?'scale(1.5)':null,transition: 'transform 0.3s ease-in-out'}}>
+                  {item.icon}
+                </div>
+
+              ))}
+
+              <div onMouseEnter={()=>handleMouseEnter('homearrow')} onMouseLeave={handleMouseELeave} style={{border:"1px solid black",borderRadius:"50%",transform:hoverItem==='homearrow'?'scale(1.5)':null,transition: 'transform 0.3s ease-in-out'}}>
+              <ArrowUpwardIcon id="homearrow" onClick={scrollToTop}  />
+              </div>
+            </div>
       )}
             </>
     )

@@ -1,54 +1,94 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { Container } from 'react-bootstrap';
-import JavascriptIcon from '@mui/icons-material/Javascript';
+import React from 'react';
+import { Typography, Grid, Card, CardContent, Chip } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faReact, faNode,faSquareJs,faHtml5, faCss3,faPython } from '@fortawesome/free-brands-svg-icons';
 
-const skills = [
-  {
-    title: "JavaScript",
-    icon:<JavascriptIcon sx={{fontSize:"2em"}}/>,
-    description: "Proficient in modern ES6+ syntax and concepts, including asynchronous programming, closures, and functional programming.",
-  },
-  {
-    title: "React",
-    description: "Skilled in building dynamic and responsive user interfaces using ReactJS, including state management with Redux and context API.",
-  },
-  {
-    title: "HTML & CSS",
-    description: "Expertise in building semantically structured and visually appealing web pages using HTML5 and CSS3, including knowledge of Flexbox and CSS Grid for layout.",
-  },
-  {
-    title: "Node.js",
-    description: "Experience in server-side development with Node.js, creating RESTful APIs, and working with Express framework.",
-  },
-  {
-    title: "Database Management",
-    description: "Familiarity with database systems such as MongoDB and MySQL, including CRUD operations and schema design.",
-  },
+const frontendSkills = [
+  { name: 'React', icon: faReact },
+  { name: 'HTML5', icon: faHtml5 },
+  { name: 'CSS3', icon: faCss3 },
+  // Add more frontend skills as needed
 ];
 
-export default function Skills() {
+const backendSkills = [
+  { name: 'Node.js', icon: faNode },
+  { name: 'Express.js', icon: faNode },
+  // Add more backend skills as needed
+];
+
+const languageSkills = [
+  { name: 'JavaScript', icon: faSquareJs }, // No specific icon for JavaScript
+  { name: 'Python', icon: faPython },
+  // Add more language skills as needed
+];
+
+const databaseSkills = [
+  { name: 'MongoDB', icon:'' },
+  { name: 'OracleDB', icon:'' },
+  { name: 'MySQL', icon:'' },
+  // Add more database skills as needed
+];
+
+const toolSkills = [
+  { name: 'Git', icon: null },
+  { name: 'Visual Studio', icon: null } // No specific icon for Git
+  // Add more tool skills as needed
+];
+
+const Libaries = [
+  { name: 'Bootstrap', icon: null }, // No specific icon for Git
+  // Add more tool skills as needed
+];
+
+function SkillCard({ title, skills }) {
   return (
-    <Container id="skill" maxWidth="md" sx={{ marginTop: '2rem'}} style={{textAlign:"center"}}>
-      <Typography variant='h3' align="center" gutterBottom>Skills</Typography>
-      <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
-        {skills.map((skill, index) => (
-          <Card key={index} sx={{ maxWidth: 300, minHeight: 150 }}>
-            <CardContent>
-             <FontAwesomeIcon icon="fa-brands fa-react" />
-              <Typography gutterBottom variant="h5" component="div">
-                {skill.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {skill.description}
-              </Typography>
-            </CardContent>
-          </Card>
-        ))}
-      </Container>
-    </Container>
+    <Card  >
+      <CardContent>
+        <Typography variant="h6" gutterBottom>
+          {title}
+        </Typography>
+        <Grid container spacing={1}>
+          {skills.map((skill, index) => (
+            <Grid item key={index}>
+              <Chip
+                icon={skill.icon ? <FontAwesomeIcon icon={skill.icon} /> : null}
+                label={skill.name}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </CardContent>
+    </Card>
   );
 }
+
+function SkillSection({smallScreen}) {
+  return (
+   
+      <div id="skill" style={!smallScreen?{height:"100vh",rowGap:"10px",display:"flex",flexDirection:"column",alignItems:"center"}:null}>
+        <Typography variant="h4" gutterBottom align='center'>Skills</Typography>
+        <Grid container spacing={smallScreen?5:10} style={{ display: "flex", justifyContent:"space-around",alignItems:"center",marginTop:"1em"}}>
+          <Grid item xs={12} sm={6} md={4}>
+            <SkillCard title="Frontend" skills={frontendSkills} />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <SkillCard title="Backend" skills={backendSkills} />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <SkillCard title="Languages" skills={languageSkills} />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <SkillCard title="Database" skills={databaseSkills} />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <SkillCard title="Tools" skills={toolSkills} />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <SkillCard title="Libaries" skills={Libaries} />
+          </Grid>
+        </Grid>
+      </div>
+  );
+}
+
+export default SkillSection;
