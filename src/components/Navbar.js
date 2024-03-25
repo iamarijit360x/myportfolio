@@ -8,6 +8,7 @@ import EngineeringIcon from '@mui/icons-material/Engineering';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MenuIcon from '@mui/icons-material/Menu'; // Import MenuIcon
 import { Container } from 'react-bootstrap';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export default function NavBar({smallScreen}){
     //Floating Navbar Zoom Effect
@@ -30,6 +31,7 @@ export default function NavBar({smallScreen}){
     {title:"Skills",id:"skill",icon:<EngineeringIcon/>},
     {title:"Projects",id:"projects",icon:<CodeIcon/>},
     {title:"Education",id:"education",icon:<SchoolIcon/>},
+    {title:"Certifications",id:"certifications",icon:<EmojiEventsIcon/>}
   ]
     
     useEffect(() => {
