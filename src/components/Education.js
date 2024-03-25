@@ -18,7 +18,7 @@ const data=[{
 }]
 export default function Education(){
             return (
-                <Container maxWidth="md" sx={{ marginTop: '2rem' }}>
+                <Container id="education" maxWidth="md" sx={{ marginTop: '2rem' }}>
                     <Typography variant="h3" align="center" gutterBottom>Education</Typography>
                     {data.map((item)=>(
                       <List >

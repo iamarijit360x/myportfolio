@@ -11,11 +11,11 @@ const data=[
   {
     title:"Student Data Collection Application",
     img:"https://user-images.githubusercontent.com/58776463/113732098-ec08b380-9716-11eb-8377-39a4142f6e60.jpg",
-    des:"Implemented a robust system for managing student details with features including input, storage, and search functionalities. Enhanced administrative efficiency by streamlining data collection processes. Integrated data validation mechanisms to ensure accuracy and completeness of entered information. Empowered users to efficiently retrieve student information for quick decision-making. This system optimizes student data management, offering a seamless experience for administrators and users alike.",
+    des:"The student management system streamlines data collection and ensures accuracy with advanced validation mechanisms. Its robust search capabilities enable swift access to student information, facilitating informed decision-making. With a seamless user experience, it enhances administrative efficiency, catering to the diverse needs of both administrators and users.",
     sourcecode:"https://github.com/iamarijit360x/College-Admission"
   },
   {
-    title:"Region Based Robust Data Hiding Technique with the Application of Deep Learning",
+    title:"Region Based Robust Data Hiding Technique",
     img:"https://img.wonderhowto.com/img/39/27/63645855710304/0/steganography-hide-secret-data-inside-image-audio-file-seconds.w1456.jpg",
     des:"Developed a collaborative steganography solution integrating GAN for cover image realism and skin detection algorithms. This project, part of the final year curriculum, showcased proficiency in data security and image manipulation techniques. Leveraged GAN technology to enhance security measures and applied a bucketing algorithm for minimal impact on image integrity during message embedding.",
     sourcecode:"https://github.com/iamarijit360x/Final-Year-Project-Stegenography-"
@@ -27,34 +27,34 @@ const data=[
     sourcecode:"https://github.com/iamarijit360x/iamarijit360x.lemonbakes.github.io/tree/main",
     demo:"https://iamarijit360x.github.io/iamarijit360x.lemonbakes.github.io/"
   }
-]
+];
 
 export default function Projects() {
   return (
-    <Container maxWidth="md" sx={{ marginTop: '2rem'}} style={{textAlign:"center"}}>
-    <Typography variant='h3' align="center" gutterBottom>Projects</Typography>
-    <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
-    {data.map(item=>(
-            <Card sx={{ maxWidth: 400}}>
-              <CardMedia
-                sx={{ height: 140 }}
-                image={item.img}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {item.des}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">link</Button>
-              </CardActions>
+    <Container id="projects" maxWidth="md" sx={{ marginTop: '2rem'}} style={{textAlign:"center"}}>
+      <Typography variant='h3' align="center" gutterBottom>Projects</Typography>
+      <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
+        {data.map(item=>(
+          <Card sx={{ maxWidth: 400, marginBottom: '20px' }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image={item.img}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {item.des}
+              </Typography>
+            </CardContent>
+            <CardActions sx={{ display: 'flex', justifyContent: 'space-around',bottom:'0' }}>
+              <Button size="small">Share</Button>
+              <Button size="small">link</Button>
+            </CardActions>
           </Card>
-    ))}</Container>
-    
-  </Container>
+        ))}
+      </Container>
+    </Container>
   );
 }
