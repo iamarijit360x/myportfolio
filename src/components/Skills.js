@@ -65,7 +65,7 @@ function SkillCard({ title, skills }) {
 function SkillSection({smallScreen}) {
   return (
    
-      <div id="skill" style={!smallScreen?{height:"100vh",rowGap:"10px",display:"flex",flexDirection:"column",alignItems:"center"}:null}>
+      <div id="skill" style={!smallScreen?{height:"100vh",rowGap:"10px",display:"flex",flexDirection:"column",alignItems:"center",paddingTop:"5rem"}:{paddingTop:"5rem"}}>
         <Typography variant="h4" gutterBottom align='center'>Skills</Typography>
         <Grid container spacing={smallScreen?5:10} style={{ display: "flex", justifyContent:"space-around",alignItems:"center",marginTop:"1em"}}>
           <Grid item xs={12} sm={6} md={4}>

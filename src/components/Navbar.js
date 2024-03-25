@@ -7,6 +7,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MenuIcon from '@mui/icons-material/Menu'; // Import MenuIcon
+import { Container } from 'react-bootstrap';
 
 export default function NavBar({smallScreen}){
     //Floating Navbar Zoom Effect
@@ -70,7 +71,7 @@ export default function NavBar({smallScreen}){
 
     const Mobile_comp = ()=>{
       return (
-        <AppBar position="static" style={{ width: "100%" }}>
+        <AppBar position="fixed" style={{ width: "100%" }}>
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Arijit</Typography>
                     <IconButton onClick={handleMenuClick} color="inherit" aria-label="menu">
@@ -95,7 +96,7 @@ export default function NavBar({smallScreen}){
                                 {item.title}
                             </MenuItem>
                         ))}
-                        <MenuItem onClick={() => { handleMenuClose(); window.location.href = 'https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'; }}>
+                        <MenuItem style={{}} onClick={() => { handleMenuClose(); window.location.href = 'https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'; }}>
                             Download CV
                             <FileDownloadIcon />
                         </MenuItem>
@@ -106,15 +107,17 @@ export default function NavBar({smallScreen}){
     }
     const Normal_comp = ()=>{
       return (
-        <AppBar position="static" style={{width:"100%"}}>
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>ArijitX</Typography>
-                    
-                    {items.map(item=>
+        <AppBar position="fixed" style={{width:"100%"}}>
+               <Toolbar> 
+                    <Typography variant="" component="div" sx={{ flexGrow: 1 }}>ArijitX</Typography>
+                    <Container style={{display:"flex",justifyContent:"space-around"}}>
+                        {items.map(item=>
+                            
+                            <Button onClick={()=>focus(item.id)} color="inherit">{item.icon}{item.title}</Button>
+                            )}
+                        <Button onClick={()=>{window.location.href='https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'}} color="inherit">Download CV<FileDownloadIcon/></Button>
                         
-                        <Button onClick={()=>focus(item.id)} color="inherit">{item.icon}{item.title}</Button>
-                        )}
-                    <Button onClick={()=>{window.location.href='https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'}} color="inherit">Download CV<FileDownloadIcon/></Button>
+                    </Container>
                 </Toolbar>
             </AppBar>
       )

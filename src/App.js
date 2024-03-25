@@ -37,7 +37,7 @@ function App() {
        
         <Projects />
         <Education />
-
+        <Certifications/>
         <Footer/>
         
        

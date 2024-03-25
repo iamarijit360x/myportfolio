@@ -24,7 +24,7 @@ const data = [
 
 export default function Education() {
     return (
-        <Container id="education" maxWidth="md" sx={{ marginTop: '2rem' }} style={{ height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <Container id="education" maxWidth="md" sx={{ paddingTop: '5rem' }}>
             <Typography variant="h4" align="center" gutterBottom>Education</Typography>
             {data.map((item, index) => (
                 <Card key={index} sx={{ marginBottom: '1rem' }}>

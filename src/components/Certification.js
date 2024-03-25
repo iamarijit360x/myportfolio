@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,53 +7,93 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Container } from 'react-bootstrap';
 
-const data=[
+const data = [
   {
-    title:"Student Data Collection Application",
-    img:"https://user-images.githubusercontent.com/58776463/113732098-ec08b380-9716-11eb-8377-39a4142f6e60.jpg",
-    des:"The student management system streamlines data collection and ensures accuracy with advanced validation mechanisms. Its robust search capabilities enable swift access to student information, facilitating informed decision-making. With a seamless user experience, it enhances administrative efficiency, catering to the diverse needs of both administrators and users.",
-    sourcecode:"https://github.com/iamarijit360x/College-Admission"
+    title: "Item 1",
+    img: "image_url_1",
+    description: "Description of item 1"
   },
   {
-    title:"Region Based Robust Data Hiding Technique",
-    img:"https://img.wonderhowto.com/img/39/27/63645855710304/0/steganography-hide-secret-data-inside-image-audio-file-seconds.w1456.jpg",
-    des:"Developed a collaborative steganography solution integrating GAN for cover image realism and skin detection algorithms. This project, part of the final year curriculum, showcased proficiency in data security and image manipulation techniques. Leveraged GAN technology to enhance security measures and applied a bucketing algorithm for minimal impact on image integrity during message embedding.",
-    sourcecode:"https://github.com/iamarijit360x/Final-Year-Project-Stegenography-"
+    title: "Item 2",
+    img: "image_url_2",
+    description: "Description of item 2"
   },
   {
-    title:"A Bakery - Static Responsive Website",
-    img:"https://ik.imagekit.io/dcwfxnql7/image.png?updatedAt=1711293937472",
-    des:"Achieved optimal viewing experience across diverse devices by employing HTML and CSS for structure and style, enhancing aesthetics. Integrated Google Fonts to elevate the visual appeal, showcasing a keen understanding of design principles. This project demonstrates proficiency in both web development and design, ensuring a polished and user-friendly website interface.",
-    sourcecode:"https://github.com/iamarijit360x/iamarijit360x.lemonbakes.github.io/tree/main",
-    demo:"https://iamarijit360x.github.io/iamarijit360x.lemonbakes.github.io/"
+    title: "Item 3",
+    img: "image_url_2",
+    description: "Description of item 2"
+  },
+  {
+    title: "Item 4",
+    img: "image_url_2",
+    description: "Description of item 2"
+  },
+  {
+    title: "Item 5",
+    img: "image_url_2",
+    description: "Description of item 2"
+  },
+  {
+    title: "Item 6",
+    img: "image_url_2",
+    description: "Description of item 2"
+  },
+  {
+    title: "Item 7",
+    img: "image_url_2",
+    description: "Description of item 2"
+  },
+  {
+    title: "Item 8",
+    img: "image_url_2",
+    description: "Description of item 2"
   }
+
+  // Add more items as needed
 ];
 
-export default function Certifications() {
+const Certifications = () => {
+  const [startIdx, setStartIdx] = useState(0);
+
+  const nextSlide = () => {
+    setStartIdx(prevStartIdx => (prevStartIdx + 1) % data.length);
+  };
+
+  const prevSlide = () => {
+    setStartIdx(prevStartIdx => (prevStartIdx + data.length - 1) % data.length);
+  };
+
   return (
-    <Container id="certifications" maxWidth="md" sx={{ marginTop: '2rem'}} style={{textAlign:"center"}}>
-      <Typography variant='h3' align="center" gutterBottom>Certifications</Typography>
-      <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
-        {data.map(item=>(
-          <Card sx={{ maxWidth: 400, marginBottom: '20px' }}>
+    <Container id="cards-carousel" maxWidth="md" sx={{ marginTop: '2rem' }} style={{ textAlign: "center" }}>
+      <Typography variant='h3' align="center" gutterBottom>Card Carousel</Typography>
+      <Container style={{ display: "flex", flexDirection: "row", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+        {[0, 1, 2, 3].map((offset) => (
+          <Card key={offset} sx={{ maxWidth: 300, marginBottom: '20px' }}>
             <CardMedia
               sx={{ height: 140 }}
-              image={item.img}
+              image={data[(startIdx + offset) % data.length].img}
+              title={data[(startIdx + offset) % data.length].title}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {item.title}
+                {data[(startIdx + offset) % data.length].title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {item.des}
+                {data[(startIdx + offset) % data.length].description}
               </Typography>
             </CardContent>
-            <CardActions sx={{ display: 'flex', justifyContent: 'space-around',bottom:'0' }}>
-              <Button size="small">link</Button>
+            <CardActions sx={{ display: 'flex', justifyContent: 'space-around', bottom: '0' }}>
+              <Button size="small">Link</Button>
             </CardActions>
           </Card>
         ))}
       </Container>
+      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <Button variant="contained" onClick={prevSlide}>Prev</Button>
+        <Button variant="contained" onClick={nextSlide}>Next</Button>
+      </div>
     </Container>
   );
-}
+};
+
+export default Certifications;

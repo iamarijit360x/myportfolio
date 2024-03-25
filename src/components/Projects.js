@@ -31,7 +31,7 @@ const data=[
 
 export default function Projects() {
   return (
-    <Container id="projects" maxWidth="md" sx={{ marginTop: '16px'}} style={{textAlign:"center"}}>
+    <Container id="projects" maxWidth="md" sx={{ marginTop: '16px'}} style={{textAlign:"center",paddingTop:"5rem"}}>
       <Typography variant='h4' align="center" gutterBottom>Projects</Typography>
       <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
         {data.map(item=>(
