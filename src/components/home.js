@@ -27,7 +27,7 @@ export default function Home(){
             <Container id="home" maxWidth="md" sx={{ marginTop: '2rem',height:'1oovh' }} style={{height:"100vh",display:"flex",flexDirection:"column",justifyContent:"center"}}>
                 <Typography variant="h2" align="center" gutterBottom>Hi I am Arijit </Typography>
                 <Typography variant="body1" align="center" paragraph>
-                    This is where you can introduce yourself and highlight your skills, experience, or any other relevant information.
+                  Full Stack Developer
                 </Typography>
                 <Container style={{display:"flex",justifyContent:"space-around"}}>
                 {links.map(item=>(

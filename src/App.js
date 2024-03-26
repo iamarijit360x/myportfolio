@@ -7,6 +7,15 @@ import Certifications from "./components/Certification";
 import Footer from "./components/Footer";
 
 import { useState,useEffect } from "react";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 function App() {
   const [smallScreen,setIsSmallScreen]=useState(window.innerWidth<=750);
     
@@ -30,19 +39,16 @@ function App() {
 }, [smallScreen]);
   return (
     
-      <div >
-        <NavBar smallScreen={smallScreen}/>
-        <Home />
-      <SkillSection smallScreen={smallScreen} />
-       
-        <Projects />
-        <Education />
-        <Certifications/>
-        <Footer/>
-        
-       
-        
-      </div>
+      <ThemeProvider theme={darkTheme} >
+          <CssBaseline/>
+          <NavBar smallScreen={smallScreen}/>
+          <Home />
+          <SkillSection smallScreen={smallScreen} />
+          <Projects />
+          <Education />
+          <Certifications smallScreen={smallScreen}/>
+          <Footer/>
+      </ThemeProvider>
       
      
   );
