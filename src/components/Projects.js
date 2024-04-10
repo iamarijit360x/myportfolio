@@ -21,7 +21,7 @@ const data=[
     sourcecode:"https://github.com/iamarijit360x/Final-Year-Project-Stegenography-"
   },
   {
-    title:"The WareHouse Gym",
+    title:"The WareHouse Gym(Underconstruction)",
     img:"https://ik.imagekit.io/dcwfxnql7/Screenshot%202024-04-10%20135853.png?updatedAt=1712737795786",
     des:"Fitness website built with React and Node.js. Seamless navigation, secure authentication, and intuitive features for class schedules, training sessions, and memberships.",
     sourcecode:"https://github.com/iamarijit360x/The-WareHouseGym.git",
@@ -49,7 +49,7 @@ export default function Projects() {
               </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-around',bottom:'0' }}>
-              <Button onclick={()=>{window.location.href=item.sourcecode}} size="small">link</Button>
+              <Button onClick={()=>{window.location.href=item.sourcecode}} size="small">link</Button>
             </CardActions>
           </Card>
         ))}
