@@ -21,11 +21,11 @@ const data=[
     sourcecode:"https://github.com/iamarijit360x/Final-Year-Project-Stegenography-"
   },
   {
-    title:"A Bakery - Static Responsive Website",
-    img:"https://ik.imagekit.io/dcwfxnql7/image.png?updatedAt=1711293937472",
-    des:"Achieved optimal viewing experience across diverse devices by employing HTML and CSS for structure and style, enhancing aesthetics. Integrated Google Fonts to elevate the visual appeal, showcasing a keen understanding of design principles. This project demonstrates proficiency in both web development and design, ensuring a polished and user-friendly website interface.",
-    sourcecode:"https://github.com/iamarijit360x/iamarijit360x.lemonbakes.github.io/tree/main",
-    demo:"https://iamarijit360x.github.io/iamarijit360x.lemonbakes.github.io/"
+    title:"The WareHouse Gym",
+    img:"https://ik.imagekit.io/dcwfxnql7/Screenshot%202024-04-10%20135853.png?updatedAt=1712737795786",
+    des:"Fitness website built with React and Node.js. Seamless navigation, secure authentication, and intuitive features for class schedules, training sessions, and memberships.",
+    sourcecode:"https://github.com/iamarijit360x/The-WareHouseGym.git",
+    underConstruction:true
   }
 ];
 
@@ -49,8 +49,7 @@ export default function Projects() {
               </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-around',bottom:'0' }}>
-              <Button size="small">Share</Button>
-              <Button size="small">link</Button>
+              <Button onclick={()=>{window.location.href=item.sourcecode}} size="small">link</Button>
             </CardActions>
           </Card>
         ))}
