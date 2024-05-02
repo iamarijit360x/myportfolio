@@ -6,7 +6,8 @@ import { faReact, faNode,faSquareJs,faHtml5, faCss3,faPython } from '@fortawesom
 const frontendSkills = [
   { name: 'React', icon: faReact },
   { name: 'HTML5', icon: faHtml5 },
-  { name: 'CSS3', icon: faCss3 },
+  { name: 'CSS3', icon: faCss3 }, 
+  { name: 'Redux', icon: faReact },
   // Add more frontend skills as needed
 ];
 
@@ -31,23 +32,25 @@ const databaseSkills = [
 
 const toolSkills = [
   { name: 'Git', icon: null },
-  { name: 'Visual Studio', icon: null } // No specific icon for Git
+  { name: 'Visual Studio', icon: null },
+  {name:"Vite",icon:null} // No specific icon for Git
   // Add more tool skills as needed
 ];
 
 const Libaries = [
-  { name: 'Bootstrap', icon: null }, // No specific icon for Git
+  { name: 'Bootstrap', icon: faCss3 },
+  { name: 'Material UI', icon: faCss3 }, // No specific icon for Git
   // Add more tool skills as needed
 ];
 
 function SkillCard({ title, skills }) {
   return (
-    <Card  >
+    <Card>
       <CardContent>
         <Typography variant="h6" gutterBottom>
           {title}
         </Typography>
-        <Grid container spacing={1}>
+        <Grid container spacing={3} direction="row">
           {skills.map((skill, index) => (
             <Grid item key={index}>
               <Chip
@@ -62,10 +65,11 @@ function SkillCard({ title, skills }) {
   );
 }
 
+
 function SkillSection({smallScreen}) {
   return (
    
-      <div id="skill" style={!smallScreen?{height:"100vh",rowGap:"10px",display:"flex",flexDirection:"column",alignItems:"center",paddingTop:"5rem"}:{paddingTop:"5rem"}}>
+      <div id="skill" style={!smallScreen?{height:"100vh",rowGap:"10px",display:"flex",flexDirection:"column",alignItems:"center",paddingTop:"5rem",paddingRight:"1rem",paddingLeft:"1rem"}:{paddingTop:"5rem",paddingRight:"1rem",paddingLeft:"1rem"}}>
         <Typography variant="h4" gutterBottom align='center'>Skills</Typography>
         <Grid container spacing={smallScreen?5:10} style={{ display: "flex", justifyContent:"space-around",alignItems:"center",marginTop:"1em"}}>
           <Grid item xs={12} sm={6} md={4}>

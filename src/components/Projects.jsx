@@ -21,35 +21,39 @@ const data=[
     sourcecode:"https://github.com/iamarijit360x/Final-Year-Project-Stegenography-"
   },
   {
-    title:"The WareHouse Gym(Underconstruction)",
+    title:"The WareHouse          Gym",
     img:"https://ik.imagekit.io/dcwfxnql7/Screenshot%202024-04-10%20135853.png?updatedAt=1712737795786",
-    des:"Fitness website built with React and Node.js. Seamless navigation, secure authentication, and intuitive features for class schedules, training sessions, and memberships.",
+    des:"Gym Website, built with ReactJS, Node.js, and MongoDB, seamlessly integrates Redux for state management and Bootstrap for sleek UI design. With Passport JS, we ensure secure authentication, while RateLimiter safeguards against unauthorized login attempts. Offering custom membership specifications, users can conveniently purchase multiple memberships, enhancing their fitness journey with ease.",
     sourcecode:"https://github.com/iamarijit360x/The-WareHouseGym.git",
-    underConstruction:true
-  }
+    underConstruction:false,
+    demo:"https://the-warehousegym-1.onrender.com",
+   
+  },
+  
 ];
 
 export default function Projects() {
   return (
-    <Container id="projects" maxWidth="md" sx={{ marginTop: '16px'}} style={{textAlign:"center",paddingTop:"5rem"}}>
+    <Container id="projects" maxWidth="md" sx={{ marginTop: '16px' }} style={{ textAlign: "center", paddingTop: "5rem" }}>
       <Typography variant='h4' align="center" gutterBottom>Projects</Typography>
-      <Container style={{display:"flex",flexDirection:"row",gap:"10px",flexWrap:"wrap",justifyContent:"center"}}>
-        {data.map(item=>(
-          <Card sx={{ maxWidth: 400, marginBottom: '20px' }}>
+      <Container style={{ display: "flex", flexDirection: "row", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+        {data.map((item, index) => (
+          <Card key={index} sx={{ maxWidth: 400, marginBottom: '20px', position: 'relative' }}>
             <CardMedia
               sx={{ height: 140 }}
               image={item.img}
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {item.title}
+            <CardContent style={{ paddingBottom: '40px' }}> {/* Added padding to CardContent */}
+              <Typography gutterBottom variant="h5" component="div" style={{height:"4rem"}}>
+                {item.title}{item.underConstruction && "Underconstruction"}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {item.des}
               </Typography>
             </CardContent>
-            <CardActions sx={{ display: 'flex', justifyContent: 'space-around',bottom:'0' }}>
-              <Button onClick={()=>{window.location.href=item.sourcecode}} size="small">link</Button>
+            <CardActions sx={{ display: 'flex', justifyContent: 'center', position: 'absolute', bottom: '0', width: '100%' }}>
+              <Button onClick={() => { window.location.href = item.sourcecode }} size="small">Link</Button>
+              {item.demo && <Button onClick={() => { window.location.href = item.demo }} size="small">Live Demo</Button>}
             </CardActions>
           </Card>
         ))}
@@ -57,3 +61,4 @@ export default function Projects() {
     </Container>
   );
 }
+

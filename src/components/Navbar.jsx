@@ -98,7 +98,7 @@ export default function NavBar({smallScreen}){
                                 {item.title}
                             </MenuItem>
                         ))}
-                        <MenuItem style={{}} onClick={() => { handleMenuClose(); window.location.href = 'https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'; }}>
+                        <MenuItem style={{}} onClick={() => { handleMenuClose(); window.location.href = ''; }}>
                             Download CV
                             <FileDownloadIcon />
                         </MenuItem>
@@ -117,7 +117,7 @@ export default function NavBar({smallScreen}){
                             
                             <Button onClick={()=>focus(item.id)} color="inherit">{item.icon}{item.title}</Button>
                             )}
-                        <Button onClick={()=>{window.location.href='https://media.licdn.com/dms/document/media/D562DAQGZLhyXmyULGA/profile-treasury-document-pdf-analyzed/0/1705162947744?e=1712188800&v=beta&t=q7Ym5CuE_4VdJiqkx4d0mzrF5xPLdew6EvQkXuwJZGs'}} color="inherit">Download CV<FileDownloadIcon/></Button>
+                        <Button onClick={()=>{window.location.href='https://arijitx-resume.tiiny.site/'}} color="inherit">Download CV<FileDownloadIcon/></Button>
                         
                     </Container>
                 </Toolbar>
