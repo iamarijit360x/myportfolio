@@ -21,7 +21,7 @@ const data=[
     sourcecode:"https://github.com/iamarijit360x/Final-Year-Project-Stegenography-"
   },
   {
-    title:"The WareHouse          Gym",
+    title:"The WareHouse Gym",
     img:"https://ik.imagekit.io/dcwfxnql7/Screenshot%202024-04-10%20135853.png?updatedAt=1712737795786",
     des:"Gym Website, built with ReactJS, Node.js, and MongoDB, seamlessly integrates Redux for state management and Bootstrap for sleek UI design. With Passport JS, we ensure secure authentication, while RateLimiter safeguards against unauthorized login attempts. Offering custom membership specifications, users can conveniently purchase multiple memberships, enhancing their fitness journey with ease.",
     sourcecode:"https://github.com/iamarijit360x/The-WareHouseGym.git",
@@ -29,6 +29,14 @@ const data=[
     demo:"https://the-warehousegym-1.onrender.com",
    
   },
+
+  {
+    title:"MessagerX",
+    img:"",
+    des:"Messaging App, built with ReactJS, Node.js, and MongoDB,MaterialUI(MUI) for sleek UI design. With JWT authetication, we ensure secure authentication, while RateLimiter safeguards against unauthorized login attempts. ",
+    sourcecode:"https://github.com/iamarijit360x/MessagerX",
+    underConstruction:true,
+  }
   
 ];
 
@@ -45,7 +53,8 @@ export default function Projects() {
             />
             <CardContent style={{ paddingBottom: '40px' }}> {/* Added padding to CardContent */}
               <Typography gutterBottom variant="h5" component="div" style={{height:"4rem"}}>
-                {item.title}{item.underConstruction && "Underconstruction"}
+                {item.title}
+                <Typography variant="h6"> {item.underConstruction && "(Underconstruction)"}</Typography>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {item.des}
