@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import { useState,useEffect } from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import WorkExperience from "./components/Experience";
 
 const darkTheme = createTheme({
   palette: {
@@ -44,6 +45,7 @@ function App() {
           <NavBar smallScreen={smallScreen}/>
           <Home />
           <SkillSection smallScreen={smallScreen} />
+          <WorkExperience/>
           <Projects />
           <Education />
           <Certifications smallScreen={smallScreen}/>
