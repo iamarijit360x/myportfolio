@@ -12,8 +12,8 @@ const workExperiences = [
   {
     title: 'Web Developer Intern',
     company: '10xtech',
-    location: 'Kolkata, West Bengal, India',
-    duration: 'June 2023 - Present',
+    location: 'Remote, India',
+    duration: 'July 2024 - Present',
     description: `Developed secure authentication modules, including user registration, login, and password reset functionalities using Node.js, Express.js, and MongoDB. Worked on RESTful API creation and middleware implementation for protected routes.`,
   },
 
